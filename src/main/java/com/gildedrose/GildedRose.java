@@ -5,6 +5,7 @@ class GildedRose {
     private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
     private static final String BACKSTAGE_PASS = "Backstage passes to a TAFKAL80ETC concert";
     private static final String AGED_BRIE = "Aged Brie";
+    private static final String CONJURED = "conjured";
 
     Item[] items;
 
@@ -35,7 +36,8 @@ class GildedRose {
     public void updateQuality() {
 
         for (Item item : items) {
-            switch (item.name) {
+            var nameCheck = (item.name.toLowerCase().startsWith(CONJURED)) ? CONJURED : item.name;
+            switch (nameCheck) {
                 case SULFURAS:
                     break;
                 case BACKSTAGE_PASS:
@@ -60,6 +62,11 @@ class GildedRose {
                     increaseQuality(item);
                     decreaseSellin(item);
                     break;
+                case CONJURED:
+                    decreaseQuality(item);
+                    if (item.sellIn <= 0) {
+                        decreaseQuality(item);
+                    }
                 default:
                     decreaseQuality(item);
                     if (item.sellIn <= 0) {
