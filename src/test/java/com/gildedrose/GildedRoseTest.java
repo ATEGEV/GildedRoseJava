@@ -20,7 +20,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void qualityItemDecreasesByTwoUAfterSellinDate() {
+    void qualityItemDecreasesByTwoAfterSellinDate() {
         Item[] items = new Item[]{new Item("testItem", -1, 2)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -100,12 +100,29 @@ class GildedRoseTest {
     }
 
     @Test
-    void qualityItemDropsToZeroUAfterSellinDate() {
+    void qualityItemDropsToZeroAfterSellinDate() {
         Item[] items = new Item[]{new Item(BACKSTAGE_PASS, 0, 25)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertThat(items[0].quality).isEqualTo(0);
     }
+
+    @Test
+    void qualityConjuredItemsDecreasesByTwo() {
+        Item[] items = new Item[]{new Item("conjured testItem", 16, 9)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(items[0].quality).isEqualTo(7);
+    }
+
+    @Test
+    void qualityConjuredItemDecreasesByFourAfterSellinDate() {
+        Item[] items = new Item[]{new Item("conjured testItem", 0, 8)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(items[0].quality).isEqualTo(4);
+    }
+
 
 
 }
