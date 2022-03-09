@@ -1,10 +1,16 @@
 package com.gildedrose;
 
 public class TextTestFixture {
+
     public static void main(String[] args) {
         System.out.println("OMGHAI!");
 
+        ItemBuilder builder = new ItemBuilder();
+
         Item[] items = new Item[]{
+                builder.withName("Test").withQuality(16).withSellin(9).buildItem(),
+                builder.withName("Sulfuras, Hand of Ragnaros").withQuality(16).withSellin(9).buildItem(),
+                builder.withName("Aged Brie").withQuality(-16).withSellin(1).buildItem(),
                 //*
                 new Item("+5 Dexterity Vest", 10, 21), //
                 new Item("Elixir of the Mongoose", 5, 7), //
@@ -28,7 +34,7 @@ public class TextTestFixture {
 
         GildedRose app = new GildedRose(items);
 
-        int days = 2;
+        int days = 22;
         if (args.length > 0) {
             days = Integer.parseInt(args[0]) + 1;
         }
@@ -43,5 +49,6 @@ public class TextTestFixture {
             app.updateQuality();
         }
     }
+
 
 }
