@@ -33,7 +33,7 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        //*
+
         for (Item item : items) {
             switch (item.name) {
                 case SULFURAS:
