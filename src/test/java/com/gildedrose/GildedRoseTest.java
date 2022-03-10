@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import com.gildedrose.domain.Item;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
