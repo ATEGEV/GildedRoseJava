@@ -80,4 +80,11 @@ class BackstagePassItemTest {
         assertThat(backstagePassItem.quality).isEqualTo(0);
     }
 
+    @Test
+    void sellinBackstagePassItemDecreasesByOneAfterUpdate() {
+        var item = new BackstagePassItem(BACKSTAGE_PASS, 6, 2);
+        item.updateItem();
+        assertThat(item.sellIn).isEqualTo(5);
+    }
+
 }

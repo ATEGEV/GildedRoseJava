@@ -37,12 +37,18 @@ class AgedBrieItemTest {
         assertThat(agedBrieItem.quality).isEqualTo(50);
     }
 
-   @Test
+    @Test
     void qualityAgedBrieCannotMoreTha50() {
         var agedBrieItem = new AgedBrieItem(AGED_BRIE, 6, 50);
         agedBrieItem.updateItem();
         assertThat(agedBrieItem.quality).isEqualTo(50);
     }
 
+    @Test
+    void sellinAgedBrieItemDecreasesByOneAfterUpdate() {
+        var item = new AgedBrieItem(AGED_BRIE, 6, 2);
+        item.updateItem();
+        assertThat(item.sellIn).isEqualTo(5);
+    }
 
 }

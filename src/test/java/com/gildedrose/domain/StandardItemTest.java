@@ -29,5 +29,11 @@ class StandardItemTest {
         assertThat(item.quality).isEqualTo(0);
     }
 
+    @Test
+    void sellinItemDecreasesByOneAfterUpdate() {
+        var item = new StandardItem(TEST_ITEM, 6, 2);
+        item.updateItem();
+        assertThat(item.sellIn).isEqualTo(5);
+    }
 
 }
