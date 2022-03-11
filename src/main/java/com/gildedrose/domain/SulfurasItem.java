@@ -8,6 +8,6 @@ public class SulfurasItem extends QualityStaysFixWithUpdateItem {
 
     @Override
     public void updateItem() {
-
+        //nothing needs to happen; quality stays 80, sellin stays -1;
     }
 }

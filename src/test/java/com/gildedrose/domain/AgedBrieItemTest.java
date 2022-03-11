@@ -24,10 +24,10 @@ class AgedBrieItemTest {
 
     //staat niet zo in requirements maar is wel zo gecodeerd door Leeroy in originele GildedroseTest
     @Test
-    void qualityAgedBrieIncreasesByYwoWithSellinDaysZero() {
+    void qualityAgedBrieIncreasesByTwoWithSellinDaysZero() {
         var agedBrieItem = new AgedBrieItem(AGED_BRIE, 0, 2);
         agedBrieItem.updateItem();
-        assertThat(agedBrieItem.quality).isEqualTo(5);
+        assertThat(agedBrieItem.quality).isEqualTo(4);
     }
 
     @Test

@@ -8,6 +8,12 @@ public class StandardItem extends QualityDecreasesWithUpdateItem {
 
     @Override
     public void updateItem() {
-
+        if (this.sellIn <= 0) {
+            updateQuality();
+        }
+        updateQuality();
+        updateSellin();
     }
+
 }
+

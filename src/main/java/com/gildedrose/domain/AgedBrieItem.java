@@ -8,6 +8,10 @@ public class AgedBrieItem extends QualityIncreasesWithUpdateItem {
 
     @Override
     public void updateItem() {
-
+        if (this.sellIn <= 0) {
+            updateQuality();
+        }
+        updateQuality();
+        updateSellin();
     }
 }

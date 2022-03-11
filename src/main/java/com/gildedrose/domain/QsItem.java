@@ -13,4 +13,9 @@ public abstract class QsItem extends Item {
     protected void updateSellin() {
         sellIn--;
     }
+
+    //until now only backstage pass items needs this, but that can can change
+    protected void setQualityToZero() {
+        this.quality = 0;
+    }
 }
