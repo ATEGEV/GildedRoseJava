@@ -1,6 +1,7 @@
 package com.gildedrose;
 
 import com.gildedrose.domain.Item;
+import com.gildedrose.domain.QsItem;
 
 class GildedRose {
 
@@ -9,74 +10,17 @@ class GildedRose {
     private static final String AGED_BRIE = "Aged Brie";
     private static final String CONJURED = "conjured";
 
-    Item[] items;
+    QsItem[] items;
 
-    public GildedRose(Item[] items) {
+    public GildedRose(QsItem[] items) {
         this.items = items;
     }
 
-    private void increaseQuality(Item item) {
-        if (item.quality < 50) {
-            item.quality++;
-        }
-    }
-
-    private void decreaseQuality(Item item) {
-        if (item.quality > 0) {
-            item.quality--;
-        }
-    }
-
-    private void setQualityToZero(Item item) {
-        item.quality = 0;
-    }
-
-    private void decreaseSellin(Item item) {
-        item.sellIn--;
-    }
 
     public void updateQuality() {
 
-        for (Item item : items) {
-            var nameCheck = (item.name.toLowerCase().startsWith(CONJURED)) ? CONJURED : item.name;
-            switch (nameCheck) {
-                case SULFURAS:
-                    break;
-                case BACKSTAGE_PASS:
-                    if (item.sellIn <= 0) {
-                        setQualityToZero(item);
-                    } else {
-                        increaseQuality(item);
-                        if (item.sellIn < 11) {
-                            increaseQuality(item);
-                        }
-                        if (item.sellIn < 6) {
-                            increaseQuality(item);
-                        }
-                    }
-                    decreaseSellin(item);
-                    break;
-                case AGED_BRIE:
-                    //deze increase staat eigenlijk niet in de resuirements, maar iw wel zo gïmplementeerd in de bestaande code
-                    if (item.sellIn <= 0) {
-                        increaseQuality(item);
-                    }
-                    increaseQuality(item);
-                    decreaseSellin(item);
-                    break;
-                case CONJURED:
-                    decreaseQuality(item);
-                    if (item.sellIn <= 0) {
-                        decreaseQuality(item);
-                    }
-                default:
-                    decreaseQuality(item);
-                    if (item.sellIn <= 0) {
-                        decreaseQuality(item);
-                    }
-                    decreaseSellin(item);
-                    break;
-            }
+        for (var item : items) {
+            item.updateItem();
         }
     }
 }
