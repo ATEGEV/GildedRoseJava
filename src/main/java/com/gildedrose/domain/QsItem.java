@@ -10,6 +10,18 @@ public abstract class QsItem extends Item {
 
     public abstract void updateItem();
 
+    public String getName() {
+        return this.name;
+    }
+
+    public int getSellin() {
+        return this.sellIn;
+    }
+
+    public int getQuality() {
+        return this.quality;
+    }
+
     protected void updateSellin() {
         sellIn--;
     }

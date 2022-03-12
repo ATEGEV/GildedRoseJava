@@ -10,16 +10,16 @@ class SulfurasItemTest {
 
     @Test
     void sellinSulfurasNeverChanges() {
-        var sulfurasItem = new SulfurasItem(SULFURAS, 9, 80);
+        var sulfurasItem = new SulfurasItem(SULFURAS, -1, 80);
         sulfurasItem.updateItem();
-        assertThat(sulfurasItem.sellIn).isEqualTo(9);
+        assertThat(sulfurasItem.getSellin()).isEqualTo(-1);
     }
 
     @Test
     void qualitySulfurasNeverChanges() {
         var sulfurasItem = new SulfurasItem(SULFURAS, 9, 80);
         sulfurasItem.updateItem();
-        assertThat(sulfurasItem.quality).isEqualTo(80);
+        assertThat(sulfurasItem.getQuality()).isEqualTo(80);
     }
 
 }

@@ -14,7 +14,7 @@ class BackstagePassItemTest {
     void qualityBackstagePassesIncreasesByOneIfSellin16() {
         var backstagePassItem = new BackstagePassItem(BACKSTAGE_PASS, 16, 2);
         backstagePassItem.updateItem();
-        assertThat(backstagePassItem.quality).isEqualTo(3);
+        assertThat(backstagePassItem.getQuality()).isEqualTo(3);
     }
 
     @Test
@@ -22,7 +22,7 @@ class BackstagePassItemTest {
     void qualityBackstagePassesIncreasesByOneIfSellin11() {
         var backstagePassItem = new BackstagePassItem(BACKSTAGE_PASS, 11, 7);
         backstagePassItem.updateItem();
-        assertThat(backstagePassItem.quality).isEqualTo(8);
+        assertThat(backstagePassItem.getQuality()).isEqualTo(8);
     }
 
     @Test
@@ -30,7 +30,7 @@ class BackstagePassItemTest {
     void qualityBackstagePassesIncreasesByTwoIfSellin7() {
         var backstagePassItem = new BackstagePassItem(BACKSTAGE_PASS, 7, 7);
         backstagePassItem.updateItem();
-        assertThat(backstagePassItem.quality).isEqualTo(9);
+        assertThat(backstagePassItem.getQuality()).isEqualTo(9);
     }
 
     @Test
@@ -38,7 +38,7 @@ class BackstagePassItemTest {
     void qualityBackstagePassesIncreasesByTwoIfSellin10() {
         var backstagePassItem = new BackstagePassItem(BACKSTAGE_PASS, 10, 2);
         backstagePassItem.updateItem();
-        assertThat(backstagePassItem.quality).isEqualTo(4);
+        assertThat(backstagePassItem.getQuality()).isEqualTo(4);
     }
 
     @Test
@@ -46,7 +46,7 @@ class BackstagePassItemTest {
     void qualityBackstagePassesIncreasesByTwoIfSellin6() {
         var backstagePassItem = new BackstagePassItem(BACKSTAGE_PASS, 6, 7);
         backstagePassItem.updateItem();
-        assertThat(backstagePassItem.quality).isEqualTo(9);
+        assertThat(backstagePassItem.getQuality()).isEqualTo(9);
     }
 
     @Test
@@ -54,7 +54,7 @@ class BackstagePassItemTest {
     void qualityBackstagePassesIncreasesByThreeIfSellin2() {
         var backstagePassItem = new BackstagePassItem(BACKSTAGE_PASS, 2, 7);
         backstagePassItem.updateItem();
-        assertThat(backstagePassItem.quality).isEqualTo(10);
+        assertThat(backstagePassItem.getQuality()).isEqualTo(10);
     }
 
     @Test
@@ -62,7 +62,7 @@ class BackstagePassItemTest {
     void qualityBackstagePassesIncreasesByThreeIfSellin5() {
         var backstagePassItem = new BackstagePassItem(BACKSTAGE_PASS, 5, 2);
         backstagePassItem.updateItem();
-        assertThat(backstagePassItem.quality).isEqualTo(5);
+        assertThat(backstagePassItem.getQuality()).isEqualTo(5);
     }
 
     @Test
@@ -70,21 +70,21 @@ class BackstagePassItemTest {
     void qualityBackstagePassesIncreasesByThreeIfSellin1() {
         var backstagePassItem = new BackstagePassItem(BACKSTAGE_PASS, 1, 9);
         backstagePassItem.updateItem();
-        assertThat(backstagePassItem.quality).isEqualTo(12);
+        assertThat(backstagePassItem.getQuality()).isEqualTo(12);
     }
 
     @Test
     void qualityItemDropsToZeroAfterSellinDate() {
         var backstagePassItem = new BackstagePassItem(BACKSTAGE_PASS, 0, 25);
         backstagePassItem.updateItem();
-        assertThat(backstagePassItem.quality).isEqualTo(0);
+        assertThat(backstagePassItem.getQuality()).isEqualTo(0);
     }
 
     @Test
     void sellinBackstagePassItemDecreasesByOneAfterUpdate() {
         var item = new BackstagePassItem(BACKSTAGE_PASS, 6, 2);
         item.updateItem();
-        assertThat(item.sellIn).isEqualTo(5);
+        assertThat(item.getSellin()).isEqualTo(5);
     }
 
 }
