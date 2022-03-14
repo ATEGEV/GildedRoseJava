@@ -18,7 +18,6 @@ class GildedRose {
 
 
     public void updateQuality() {
-
         for (var item : items) {
             item.updateItem();
         }
