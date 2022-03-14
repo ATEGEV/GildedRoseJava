@@ -2,6 +2,7 @@ package com.gildedrose;
 
 import com.gildedrose.domain.Item;
 
+@Deprecated
 class ItemBuilder {
 
     private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";

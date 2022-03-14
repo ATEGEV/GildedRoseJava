@@ -7,47 +7,46 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-@Deprecated
-class ItemBuilderTest {
+class QsItemFactoryTest {
 
     private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
     private static final String TEST = "TestItem";
-    private ItemBuilder builder;
+
+    private QsItemFactory factory;
 
     @BeforeEach
     void beforeEach() {
-        builder = new ItemBuilder();
+        factory = QsItemFactory.INSTANCE;
     }
 
     @Test
     void buildSulfurasItem() {
-        var item = builder.withName(SULFURAS).withSellin(-1).withQuality(80).buildItem();
+        var item =factory.create(SULFURAS, -1, 80);
         assertThat(item.sellIn).isEqualTo(-1);
         assertThat(item.quality).isEqualTo(80);
     }
 
     @Test
     void buildSulfurasItemWithInputSellinOtherThanMinus1() {
-        var item = builder.withName(SULFURAS).withSellin(16).withQuality(80).buildItem();
+        var item =factory.create(SULFURAS, 16, 80);
         assertThat(item.sellIn).isEqualTo(-1);
     }
 
     @Test
     void buildSulfurasItemWithInputQualityOtherThan80() {
-        var item = builder.withName(SULFURAS).withSellin(-1).withQuality(16).buildItem();
+        var item =factory.create(SULFURAS, -1, 16);
         assertThat(item.quality).isEqualTo(80);
     }
 
-   @Test
+    @Test
     void buildItemWithInputQualityLowerThan0() {
-        var item = builder.withName(TEST).withSellin(16).withQuality(-6).buildItem();
+        var item =factory.create(TEST, 16, -6);
         assertThat(item.quality).isEqualTo(0);
     }
 
-   @Test
+    @Test
     void buildItemWithInputQualityHigherThan50() {
-        var item = builder.withName(TEST).withSellin(16).withQuality(55).buildItem();
+        var item =factory.create(TEST, 16, 55);
         assertThat(item.quality).isEqualTo(50);
     }
-
 }

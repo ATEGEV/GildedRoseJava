@@ -12,7 +12,6 @@ enum QsItemFactory {
     private static final String CONJURED = "conjured";
 
     QsItem create(String name, int sellin, int quality) throws IllegalArgumentException {
-        //check alq sellin en qual vwn
         if (!name.equals(SULFURAS)) {
             if (quality >= 50) {
                 System.out.println("Quality cannot be more than 50.");
@@ -30,7 +29,6 @@ enum QsItemFactory {
         var nameCheck = (name.toLowerCase().startsWith(CONJURED)) ? CONJURED : name;
         switch (nameCheck) {
             case SULFURAS:
-                //check voorwaarden
                 if (sellin != -1 || quality != 80) {
                     System.out.println(SULFURAS.concat(" has alway quality of 80 and sellin date of -1"));
                 }
