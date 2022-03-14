@@ -47,11 +47,8 @@ public class TextTestFixture {
                 new ConjuredItem("Conjured Mana Cake", 3, 6),
                 qsIFacory.create(TEST_ITEM, 2, 3),
                 qsIFacory.create(SULFURAS, -1, 80),
-                try {
-                    qsIFacory.create(SULFURAS, -1, 55)
-                } catch (IllegalArgumentException ex){
-                    System.out.println(ex.getMessage());
-                }
+                qsIFacory.create(SULFURAS, -1, 55),
+                qsIFacory.create(AGED_BRIE, 6, 60)
         //*
         };
 
