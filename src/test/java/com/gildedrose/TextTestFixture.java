@@ -4,10 +4,20 @@ import com.gildedrose.domain.*;
 
 public class TextTestFixture {
 
+    private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
+    private static final String BACKSTAGE_PASS = "Backstage passes to a TAFKAL80ETC concert";
+    private static final String AGED_BRIE = "Aged Brie";
+    private static final String CONJURED = "conjured";
+    private static final String STANDARD = "a normal Item";
+    private static final String TEST_ITEM = "test Item";
+
     public static void main(String[] args) {
+
         System.out.println("OMGHAI!");
 
         ItemBuilder builder = new ItemBuilder();
+        QsItemFactory qsIFacory = QsItemFactory.INSTANCE;
+
 
         QsItem[] items = new QsItem[]{
                 /*
@@ -15,7 +25,8 @@ public class TextTestFixture {
                 builder.withName("Sulfuras, Hand of Ragnaros").withQuality(16).withSellin(9).buildItem(),
                 builder.withName("Aged Brie").withQuality(-16).withSellin(1).buildItem(),
                 */
-                //*
+                new StandardItem("Elixir of the Mongoose", 5, 7), //
+
                 new StandardItem("+5 Dexterity Vest", 10, 21), //
                 new StandardItem("Elixir of the Mongoose", 5, 7), //
                 //*/
@@ -33,8 +44,17 @@ public class TextTestFixture {
                 new BackstagePassItem("Backstage passes to a TAFKAL80ETC concert", 5, 49),
                 //*/
                 // this conjured item does not work properly yet
-                new ConjuredItem("Conjured Mana Cake", 3, 6)
+                new ConjuredItem("Conjured Mana Cake", 3, 6),
+                qsIFacory.create(TEST_ITEM, 2, 3),
+                qsIFacory.create(SULFURAS, -1, 80),
+                try {
+                    qsIFacory.create(SULFURAS, -1, 55)
+                } catch (IllegalArgumentException ex){
+                    System.out.println(ex.getMessage());
+                }
+        //*
         };
+
 
         GildedRose app = new GildedRose(items);
 
